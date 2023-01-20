@@ -1,5 +1,5 @@
 // открыть редактор 
-let editButton = document.querySelector('.profile__edit-button');
+let editButton = document.querySelector('.profile__edit_button');
 let classes = document.querySelector('.popup');
 
 let name = document.querySelector('.profile__name');
@@ -16,7 +16,7 @@ editButton.addEventListener('click', openPopup);
 
 //  закрыть редактор
 
-let closeButton = document.querySelector('.popup__container_close-button');
+let closeButton = document.querySelector('.popup__container_close_button');
 
 function closePopup() {
   classes.classList.toggle('popup_opened');
@@ -29,8 +29,8 @@ closeButton.addEventListener('click', closePopup);
 // отправка и сохранение формы
 
 let formElement = document.querySelector('.popup__container');
-let nameInput = document.querySelector('.popup__container-field-name');
-let jobInput = document.querySelector('.popup__container-field-job');
+let nameInput = document.querySelector('.popup__container__field-name');
+let jobInput = document.querySelector('.popup__container__field-job');
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
