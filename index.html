@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css" />
+  <title>Место</title>
+</head>
+
+<body class="page">
+
+  <section class="popup popup_opened">
+    <button class="popup__container_close-button"></button>
+    <form class="popup__container ">
+      <div class="popup__container">
+        <h2 class="popup__container_name">Редактировать профиль</h2>
+        <input type="text" class="popup__container-field popup__container-field-name" id="openName">
+        <input type="text" class="popup__container-field popup__container-field-job" id="openjob">
+        <button class="popup__container-safe-button popup__container-safe-button_name" type='submit'>Сохранить</button>
+      </div>
+    </form>
+  </section>
+
+  <header class="header">
+    <img class="header__logo" src="./images/header_logo.png" alt="Логотип Место">
+  </header>
+
+  <main>
+
+    <section class="profile">
+      <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар профиля">
+      <div class="profile__info">
+        <div class="profile__name-and-button">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button profile__edit-button_action_add">
+          <img class="profile__edit-button_img" src="./images/edit-button.png"> </button>
+        </div>
+        <p class="profile__job">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button">
+        <img class="profile__add-button_img" src="./images/add-button.png">
+      </button>
+    </section>
+
+
+    <section class="elements">
+      <div class="element">
+        <img class="element__photo" src="./images/photo-kareliya.jpg" alt="Фотография пейзажа Карелии">
+        <div class="element__caption">
+          <figcaption class="element__caption_text">Карелия</figcaption>
+          <img class="element__like element__like_active" src="./images/like.png">
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/photo-dagestan.jpg" alt="Фотография пейзажа Дагестана">
+        <div class="element__caption">
+          <figcaption class="element__caption_text">Дагестан</figcaption>
+          <img class="element__like element__like_active" src="./images/like.png">
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/photo-ozero-baikal.jpg" alt="Фотография озера Байкал">
+        <div class="element__caption">
+          <figcaption class="element__caption_text">Озеро Байкал</figcaption>
+          <img class="element__like element__like_active" src="./images/like.png">
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/photo-kurilskie-ostrova.jpg" alt="Фотография Курильских островов">
+        <div class="element__caption">
+          <figcaption class="element__caption_text">Курильские острова</figcaption>
+          <img class="element__like element__like_active" src="./images/like.png">
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/photo-charskie-peski.jpg" alt="Фотография Чарские пески">
+        <div class="element__caption">
+          <figcaption class="element__caption_text">Чарские пески</figcaption>
+          <img class="element__like element__like_active" src="./images/like.png">
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/photo-kamchatka.jpg" alt="Фотография пейзажа Камчатки">
+        <div class="element__caption">
+          <figcaption class="element__caption_text">Камчатка</figcaption>
+          <img class="element__like element__like_active" src="./images/like.png">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+  </footer>
+
+  <script src="./pages/index.js"></script>
+
+</body>
+
+</html>
