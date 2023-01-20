@@ -23,6 +23,7 @@
 @import url('../blocks/profile/__add-button/_img/profile__add-button_img.css');
 @import url('../blocks/elements/elements.css');
 @import url('../blocks/element/element.css');
+@import url('../blocks/element/__photo/element__photo.css');
 @import url('../blocks/element/__like/element__like.css');
 @import url('../blocks/element/__caption/element__caption.css');
 @import url('../blocks/element/__caption/_text/element__caption_text.css');
