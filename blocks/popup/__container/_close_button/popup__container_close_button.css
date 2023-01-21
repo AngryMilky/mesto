@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 545px) {
-  .popup__container_close-button {
+  .popup__container_close_button {
     width: 20px;
     height: 20px;
     margin-left: 270px;
@@ -26,7 +26,7 @@
 
 
 
-.popup__container_close-button:hover {
+.popup__container_close_button:hover {
   opacity: .5;
   cursor: pointer;
 }

@@ -1,4 +1,4 @@
-.popup__container_safe-button_name {
+.popup__container_safe_button_name {
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 545px) {
-  .popup__container_safe-button_name {
+  .popup__container_safe_button_name {
     font-size: 14px;
     line-height: 17px;
   }
