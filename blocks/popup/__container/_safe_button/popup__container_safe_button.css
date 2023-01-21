@@ -1,4 +1,4 @@
-.popup__container_safe-button {
+.popup__container_safe_button {
   margin-top: 45px;
   max-width: 358px;
   min-height: 50px;
@@ -11,12 +11,12 @@
 
 
 @media screen and (max-width: 545px) {
-  .popup__container_safe-button {
+  .popup__container_safe_button {
     min-height: 46px;
   }
 }
 
-.popup__container_safe-button:hover {
+.popup__container_safe_button:hover {
   opacity: .8;
   cursor: pointer;
 }
