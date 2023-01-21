@@ -1,4 +1,4 @@
-.popup__container_button_safe {
+.popup__containerButtonSafe {
   margin-top: 45px;
   max-width: 358px;
   min-height: 50px;
@@ -6,7 +6,6 @@
   background-color: black;
   transition: opacity .5s ease;
   border: none;
-
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -19,16 +18,14 @@
 
 
 @media screen and (max-width: 545px) {
-  .popup__container_button_safe {
+  .popup__containerButtonSafe {
     min-height: 46px;
-
-
     font-size: 14px;
     line-height: 17px;
   }
 }
 
-.popup__container_button_safe:hover {
+.popup__containerButtonSafe:hover {
   opacity: .8;
   cursor: pointer;
 }

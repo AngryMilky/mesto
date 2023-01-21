@@ -29,8 +29,8 @@ closeButton.addEventListener('click', closePopup);
 // отправка и сохранение формы
 
 let formElement = document.querySelector('.popup__container');
-let nameInput = document.querySelector('.popup__container__field-name');
-let jobInput = document.querySelector('.popup__container__field-job');
+let nameInput = document.querySelector('.popup__containerField-name');
+let jobInput = document.querySelector('.popup__containerField-job');
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
