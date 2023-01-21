@@ -16,7 +16,7 @@ editButton.addEventListener('click', openPopup);
 
 //  закрыть редактор
 
-let closeButton = document.querySelector('.popup__container_closebutton');
+let closeButton = document.querySelector('.popup__closebutton');
 
 function closePopup() {
   classes.classList.toggle('popup_opened');

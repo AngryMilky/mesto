@@ -1,9 +1,9 @@
-.popup__container_closebutton {
+.popup__closebutton {
   position: absolute;
   margin-left: 475px;
   margin-bottom: 380px;
   padding: 0;
-  background-image: url(../../../../images/close-button.png);
+  background-image: url(../../../images/close-button.png);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 545px) {
-  .popup__container_closebutton {
+  .popup__closebutton {
     width: 20px;
     height: 20px;
     margin-left: 270px;
@@ -26,7 +26,7 @@
 
 
 
-.popup__container_closebutton:hover {
+.popup__closebutton:hover {
   opacity: .5;
   cursor: pointer;
 }

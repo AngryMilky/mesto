@@ -1,0 +1,35 @@
+.popup__container_button_safe {
+  margin-top: 45px;
+  max-width: 358px;
+  min-height: 50px;
+  border-radius: 2px;
+  background-color: black;
+  transition: opacity .5s ease;
+  border: none;
+
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: white;
+  text-align: center;
+
+}
+
+
+@media screen and (max-width: 545px) {
+  .popup__container_button_safe {
+    min-height: 46px;
+
+
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.popup__container_button_safe:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
