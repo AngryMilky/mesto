@@ -24,6 +24,6 @@
 @import url('../blocks/element/__photo/element__photo.css');
 @import url('../blocks/element/__like/element__like.css');
 @import url('../blocks/element/__caption/element__caption.css');
-@import url('../blocks/element/__caption/__text/element__caption__text.css');
+@import url('../blocks/element/__captiontext/element__captiontext.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
