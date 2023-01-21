@@ -4,10 +4,10 @@
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__container/popup__container.css');
-@import url('../blocks/popup/__container/_name/popup__container_name.css');
-@import url('../blocks/popup/__container/_close_button/popup__container_close_button.css');
-@import url('../blocks/popup/__container/_safe_button/popup__container_safe_button.css');
-@import url('../blocks/popup/__container/_safe_button/_name/popup__container_safe_button_name.css');
+@import url('../blocks/popup/__containerName/popup__containerName.css');
+@import url('../blocks/popup/__container/_closebutton/popup__container_closebutton.css');
+@import url('../blocks/popup/__container/_safebutton/popup__container_safebutton.css');
+@import url('../blocks/popup/__container/_safebutton/_name/popup__container_safebutton_name.css');
 @import url('../blocks/popup/__container/__field/popup__container__field.css');
 @import url('../blocks/header/header.css');
 @import url('../blocks/header/__logo/header__logo.css');
