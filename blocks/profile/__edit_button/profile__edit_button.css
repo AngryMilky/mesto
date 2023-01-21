@@ -1,29 +1,32 @@
-.profile__edit-button {
+.profile__edit_button {
   flex: none;
   position: static;
   margin: 0;
-  padding: 0;
-  width: 24px;
-  height: 24px;
+  padding: 14px;
   background-color: #000000;
   border: white 1px solid;
   transition: opacity .5s ease;
-
+  background-image: url(../../../images/edit-button.png);
+  background-size: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
 
 }
 
-.profile__edit-button:hover {
+.profile__edit_button:hover {
   opacity: .5;
   cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
-  .profile__edit-button {
+  .profile__edit_button {
     position: absolute;
-    top: 8px;
-    right: -28px;
+    top: 1px;
+    right: -38px;
     width: 18px;
     height: 18px;
+    background-size: 7.5px;
+    padding: 11.5px;
 
   }
 }
