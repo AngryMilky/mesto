@@ -1,5 +1,5 @@
 // открыть редактор 
-let editButton = document.querySelector('.profile__edit_button');
+let editButton = document.querySelector('.profile__editbutton');
 let classes = document.querySelector('.popup');
 
 let name = document.querySelector('.profile__name');
