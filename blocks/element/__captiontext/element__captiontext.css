@@ -1,7 +1,6 @@
 .element__captiontext {
   padding: 0;
   margin: 0;
-  max-width: calc(100% - 25px);
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -11,5 +10,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
 
 }

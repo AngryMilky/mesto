@@ -2,7 +2,8 @@
   flex: none;
   position: static;
   margin: 0;
-  padding: 14px;
+  margin-bottom: 15px;
+  padding: 11px;
   background-color: #000000;
   border: white 1px solid;
   transition: opacity .5s ease;

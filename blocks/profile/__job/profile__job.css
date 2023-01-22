@@ -1,6 +1,5 @@
 .profile__job {
-  height: 18px;
-  margin: 16px 0 0 0;
+  margin: 0;
   padding: 0;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
@@ -11,6 +10,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
+
 
 }
 
