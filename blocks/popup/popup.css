@@ -3,14 +3,14 @@
   margin: 0;
   z-index: 2;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, .5);
-
+  display: none;
 
 }

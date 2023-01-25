@@ -11,15 +11,8 @@
   text-overflow: ellipsis;
   text-align: left;
   white-space: nowrap;
+  overflow: hidden;
 
-
-}
-
-
-@media screen and (max-width: 674px) {
-  .profile__name {
-    overflow: hidden;
-  }
 }
 
 

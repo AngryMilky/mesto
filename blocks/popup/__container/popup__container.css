@@ -1,6 +1,5 @@
 .popup__container {
   max-width: 430px;
-  max-height: 330px;
   padding: 34px 36px 37px;
   margin: 0;
   display: flex;
@@ -18,7 +17,6 @@
 @media screen and (max-width: 545px) {
   .popup__container {
     max-width: 282px;
-    max-height: 322px;
     padding: 25px 22px;
   }
 }

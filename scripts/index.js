@@ -1,49 +1,49 @@
-// открыть редактор 
-let editButton = document.querySelector('.profile__editbutton');
-let classes = document.querySelector('.popup');
 
+let buttonEdit = document.querySelector('.profile__button-edit');
+let buttonClose = document.querySelector('.popup__button-close');
+let classes = document.querySelector('.popup');
+let formElement = document.querySelector('.popup__form');
 let name = document.querySelector('.profile__name');
 let job = document.querySelector('.profile__job');
 
+let NameText = document.getElementById('name')
+let JobText = document.getElementById('job')
+
+
+// открывает popup
+
 function openPopup() {
-  classes.classList.toggle('popup_opened');
-  document.getElementById('openName').value = name.textContent;
-  document.getElementById('openjob').value = job.textContent;
+  classes.classList.add('popup_opened');
+  NameText.value = name.textContent;
+  JobText.value = job.textContent;
 }
 
-editButton.addEventListener('click', openPopup);
 
 
-//  закрыть редактор
 
-let closeButton = document.querySelector('.popup__closebutton');
+//  закрывает popup
 
 function closePopup() {
-  classes.classList.toggle('popup_opened');
+  classes.classList.remove('popup_opened');
 
 }
 
-closeButton.addEventListener('click', closePopup);
+
 
 
 // отправка и сохранение формы
 
-let formElement = document.querySelector('.popup__container');
-let nameInput = document.querySelector('.popup__containerField-name');
-let jobInput = document.querySelector('.popup__containerField-job');
-
 function handleFormSubmit(evt) {
   evt.preventDefault();
-  let newJob = document.querySelector('.profile__job');
-  newJob.textContent = `${jobInput.value}`;
-  let newName = document.querySelector('.profile__name');
-  newName.textContent = `${nameInput.value}`;
-
-  console.log('Форма отправлена');
+  
+  job.textContent = `${JobText.value}`;
+  name.textContent = `${NameText.value}`;
 
   closePopup();
 
 }
 
+buttonEdit.addEventListener('click', openPopup);
+buttonClose.addEventListener('click', closePopup);
 formElement.addEventListener('submit', handleFormSubmit);
 

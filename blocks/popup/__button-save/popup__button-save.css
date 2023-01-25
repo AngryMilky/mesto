@@ -1,5 +1,5 @@
-.popup__containerButtonSafe {
-  margin-top: 45px;
+.popup__button-save {
+  margin-top: 44px;
   max-width: 358px;
   min-height: 50px;
   border-radius: 2px;
@@ -18,14 +18,15 @@
 
 
 @media screen and (max-width: 545px) {
-  .popup__containerButtonSafe {
+  .popup__button-save {
     min-height: 46px;
     font-size: 14px;
     line-height: 17px;
+    margin-top: 40px;
   }
 }
 
-.popup__containerButtonSafe:hover {
+.popup__button-save:hover {
   opacity: .8;
   cursor: pointer;
 }
