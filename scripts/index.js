@@ -6,16 +6,16 @@ let formElement = document.querySelector('.popup__form');
 let name = document.querySelector('.profile__name');
 let job = document.querySelector('.profile__job');
 
-let NameText = document.getElementById('name')
-let JobText = document.getElementById('job')
+let nameText = document.getElementById('name')
+let jobText = document.getElementById('job')
 
 
 // открывает popup
 
 function openPopup() {
   classes.classList.add('popup_opened');
-  NameText.value = name.textContent;
-  JobText.value = job.textContent;
+  nameText.value = name.textContent;
+  jobText.value = job.textContent;
 }
 
 
