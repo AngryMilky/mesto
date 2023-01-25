@@ -36,8 +36,8 @@ function closePopup() {
 function handleFormSubmit(evt) {
   evt.preventDefault();
   
-  job.textContent = `${JobText.value}`;
-  name.textContent = `${NameText.value}`;
+  job.textContent = `${jobText.value}`;
+  name.textContent = `${nameText.value}`;
 
   closePopup();
 
