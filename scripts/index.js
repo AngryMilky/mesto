@@ -26,9 +26,9 @@ const initialCards = [
 ]; 
 
 const buttonEdit = document.querySelector('.profile__button-edit');
-const buttonCloseProf = document.querySelector('.button-close_profile');
-const buttonCloseElm = document.querySelector('.button-close_element');
-const buttonCloseImg = document.querySelector('.button-close_image');
+const buttonCloseProf = document.querySelector('.button-close-profile');
+const buttonCloseElm = document.querySelector('.button-close-element');
+const buttonCloseImg = document.querySelector('.button-close-image');
 const buttonAdd = document.querySelector('.profile__button-add');
 
 
