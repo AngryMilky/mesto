@@ -1,5 +1,5 @@
 .popup__button-save {
-  margin-top: 44px;
+  margin-top: 14px;
   max-width: 358px;
   min-height: 50px;
   border-radius: 2px;
@@ -22,7 +22,7 @@
     min-height: 46px;
     font-size: 14px;
     line-height: 17px;
-    margin-top: 40px;
+    margin-top: 5px;
   }
 }
 

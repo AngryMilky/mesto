@@ -1,30 +1,3 @@
-const initialCards = [
-  {
-    name: 'Республика Коми',
-    link: 'https://images.unsplash.com/photo-1525302220185-c387a117886e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'
-  },
-  {
-    name: 'Дагестан',
-    link: 'https://images.unsplash.com/photo-1632503393918-d458cda50f60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
-  },
-  {
-    name: 'Озеро Байкал',
-    link: 'https://images.unsplash.com/photo-1587053362230-eb9a377641ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'
-  },
-  {
-    name: 'Курильские острова',
-    link: 'https://images.unsplash.com/photo-1647391342641-f18cf2994f73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://plus.unsplash.com/premium_photo-1668260981191-27d7630c6ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://images.unsplash.com/photo-1634745186518-db2e653372c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  }
-];
-
 const buttonEdit = document.querySelector('.profile__button-edit');
 const buttonCloseProf = document.querySelector('.button-close-profile');
 const buttonCloseElm = document.querySelector('.button-close-element');
@@ -36,8 +9,8 @@ const cards = document.querySelector('.elements');
 
 const formEdit = document.querySelector('.popup_content_profile');
 const formAdd = document.querySelector('.popup_content_element');
-
 const formImg = document.querySelector('.popup_content_image');
+
 const formProfileEdit = document.getElementById('Profile_Edit');
 const formPlaceAdd = document.getElementById('Place_Add');
 
@@ -101,10 +74,6 @@ function renderCard(card, container) {
 }
 
 
-
-
-
-
 // загрузить готовый массив на страницу
 
 function addCardstoTemplate(allPhoto) {
@@ -129,18 +98,45 @@ function handleFormSubmitAdd(evt) {
   linkImg.value = '';
   nameImg.value = '';
   closePopup(formAdd);
+}
 
+
+//  закрывает Попап
+
+function closePopup(popupElement) {
+  popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keydown', keyHandler);
 
 }
+
+
+// закрывает Попап нажатием Esc
+
+function keyHandler(evt) {
+  if (evt.key == 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+
+  }
+}
+
+
+// закрытие кликом по оверлей
+
+window.addEventListener('click', evt => {
+  const target = evt.target
+  if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__button-close')) {
+    closePopup(document.querySelector('.popup_opened'));
+  }
+})
 
 
 // открывает Попап 
 
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown', keyHandler);
 
 }
-
 
 buttonEdit.addEventListener('click', function () {
   openPopup(formEdit);
@@ -156,12 +152,6 @@ buttonAdd.addEventListener('click', function () {
 });
 
 
-//  закрывает Попап
-function closePopup(popupElement) {
-  popupElement.classList.remove('popup_opened');
-
-}
-
 
 // отправка и сохранение формы Редактирования информации в профиле
 
@@ -169,11 +159,9 @@ function handleFormSubmit(evt) {
   evt.preventDefault();
   job.textContent = `${jobText.value}`;
   name.textContent = `${nameText.value}`;
-  closePopup(formEdit);;
+  closePopup(popupElement);
+
 }
-
-
-
 
 
 
@@ -193,5 +181,3 @@ buttonCloseImg.addEventListener('click', function () {
 });
 
 formPlaceAdd.addEventListener('submit', handleFormSubmitAdd);
-
-
