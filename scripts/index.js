@@ -1,3 +1,6 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
 const buttonEdit = document.querySelector('.profile__button-edit');
 const buttonCloseProf = document.querySelector('.button-close-profile');
 const buttonCloseElm = document.querySelector('.button-close-element');
@@ -5,15 +8,13 @@ const buttonCloseImg = document.querySelector('.button-close-image');
 const buttonAdd = document.querySelector('.profile__button-add');
 
 const cards = document.querySelector('.elements');
-const cardTemplate = document.querySelector('#card-template').content;
 
 const popupPhoto = document.querySelector('.popup__photo');
 const popupCaption = document.querySelector('.popup__caption');
 
-
+const formImg = document.querySelector('.popup_content_image');
 const formEdit = document.querySelector('.popup_content_profile');
 const formAdd = document.querySelector('.popup_content_element');
-const formImg = document.querySelector('.popup_content_image');
 
 const formProfileEdit = document.querySelector('#Profile_Edit');
 const formPlaceAdd = document.querySelector('#Place_Add');
@@ -27,76 +28,86 @@ const jobText = document.querySelector('#job')
 const nameImg = document.querySelector('#img-name');
 const linkImg = document.querySelector('#link');
 
+const formValidationOptions = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-save',
+  disabledButtonClass: 'popup__button-save_disabled',
+  inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__error'
+};
 
-
-
-// создание карточки
-
-function createCard(nameCard, linkCard) {
-
-  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-
-  cardElement.querySelector('.element__photo').src = linkCard;
-  cardElement.querySelector('.element__captiontext').textContent = nameCard;
-  cardElement.querySelector('.element__photo').alt = nameCard;
-
-
-  // поставить лайк
-  cardElement.querySelector('.element__button-like').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__button-like_active');
-  });
-
-  // удалить карточку
-  cardElement.querySelector('.element__button-delete').addEventListener('click', function (evt) {
-    const element = evt.target.closest('.element');
-    element.remove();
-  });
-
-  // просмотреть фото
-  cardElement.querySelector('.element__photo').addEventListener('click', function (evt) {
-    openPopup(formImg);
-    popupPhoto.src = evt.target.closest('.element__photo').src;
-    popupCaption.textContent = evt.target.closest('.element').querySelector('.element__captiontext').textContent;
-    popupPhoto.alt = evt.target.closest('.element__photo').alt;
-  });
-
-  return cardElement;
-}
-
-
-
-// добавление карточки в контейнер 
-
-function renderCard(card, container) {
-  container.prepend(card);
-}
-
-
-// загрузить готовый массив на страницу
-
-function addCardstoTemplate(allPhoto) {
-  for (let i = 0; i < allPhoto.length; i++) {
-    const newCard = createCard(initialCards[i].name, initialCards[i].link);
-    renderCard(newCard, cards);
+const initialCards = [
+  {
+    name: 'Республика Коми',
+    link: 'https://images.unsplash.com/photo-1525302220185-c387a117886e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'
+  },
+  {
+    name: 'Дагестан',
+    link: 'https://images.unsplash.com/photo-1632503393918-d458cda50f60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
+  },
+  {
+    name: 'Озеро Байкал',
+    link: 'https://images.unsplash.com/photo-1587053362230-eb9a377641ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'
+  },
+  {
+    name: 'Курильские острова',
+    link: 'https://images.unsplash.com/photo-1647391342641-f18cf2994f73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://plus.unsplash.com/premium_photo-1668260981191-27d7630c6ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://images.unsplash.com/photo-1634745186518-db2e653372c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
   }
+];
 
-}
+const profileValidator = new FormValidator(formValidationOptions, formProfileEdit);
+const addCardValidator  = new FormValidator(formValidationOptions, formPlaceAdd);
+profileValidator.enableValidation();
+addCardValidator.enableValidation();
 
-addCardstoTemplate(initialCards);
+
+// загрузить массив на страницу
+
+initialCards.forEach((item) => {
+  // Создадим экземпляр карточки
+  const card = new Card(item.name, item.link, '#card-template');
+  // Создаём карточку и возвращаем наружу
+  const cardElement = card.generateCard();
+ // Добавляем в DOM
+  document.querySelector('.elements').append(cardElement);
+  
+});
 
 
-// добавление карточки
+ // добавление карточки
 
 function handleFormSubmitAdd(evt) {
   evt.preventDefault();
-
-  const newCard = createCard(`${nameImg.value}`, `${linkImg.value}`);
-  renderCard(newCard, cards);
-
+  const newCard  = new Card(`${nameImg.value}`, `${linkImg.value}`, '#card-template');
+  // Создаём карточку и возвращаем наружу
+  const cardElement = newCard.generateCard();
+ // Добавляем в DOM
+  document.querySelector('.elements').prepend(cardElement);
   evt.target.reset();
   closePopup(formAdd);
 }
 
+
+// просмотреть фото
+
+cards.addEventListener('click', function (evt) {
+  if (evt.target.classList.contains('element__photo')) {
+  openPopup(formImg);
+  popupPhoto.src = evt.target.closest('.element__photo').src;
+  popupCaption.textContent = evt.target.closest('.element').querySelector('.element__captiontext').textContent;
+  popupPhoto.alt = evt.target.closest('.element__photo').alt;
+
+  }
+});
 
 //  закрывает Попап
 
@@ -156,7 +167,6 @@ if ( nameImg.textContent.length === 0 && linkImg.textContent.length === 0 ) {
 });
 
 
-
 // отправка и сохранение формы Редактирования информации в профиле
 
 function handleFormSubmit(evt) {
@@ -166,7 +176,6 @@ function handleFormSubmit(evt) {
   closePopup(formEdit);
 
 }
-
 
 
 formProfileEdit.addEventListener('submit', handleFormSubmit);
@@ -185,3 +194,11 @@ buttonCloseImg.addEventListener('click', function () {
 });
 
 formPlaceAdd.addEventListener('submit', handleFormSubmitAdd);
+
+
+
+
+
+
+
+
