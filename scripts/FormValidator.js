@@ -50,10 +50,6 @@ class FormValidator {
         this._checkInputValidity(inputElement);
 
         this.toggleButton();
-
-
-
-
       });
     });
 
@@ -67,11 +63,7 @@ class FormValidator {
 
     this._buttonSubmit.disabled = !isFormValid;
     this._buttonSubmit.classList.toggle(this._disabledButtonClass, !isFormValid);
-
   }
-
 }
-
-
 
 export default FormValidator;
