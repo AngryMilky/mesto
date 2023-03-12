@@ -156,7 +156,7 @@ buttonEdit.addEventListener('click', function () {
 
 buttonAdd.addEventListener('click', function () {
   openPopup(formAdd);
-  addCardValidator.enableValidation();
+  addCardValidator.toggleButton();
  
 });
 
