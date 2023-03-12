@@ -1,28 +1,20 @@
 class FormValidator {
   constructor(formValidationOptions, formElement) {
     this._formElement = formElement;
-    this._formSelector = formValidationOptions.formSelector;
     this._inputSelector = formValidationOptions.inputSelector;
     this._submitButtonSelector = formValidationOptions.submitButtonSelector;
     this._disabledButtonClass = formValidationOptions.disabledButtonClass;
     this._inputErrorClass = formValidationOptions.inputErrorClass;
     this._errorClass = formValidationOptions.errorClass;
+    this._buttonSubmit = this._formElement.querySelector(this._submitButtonSelector);
   }
 
 
   //  включение валидации всех форм
 
   enableValidation() {
-    this._formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
-
-    this._formElement.addEventListener('input', () => {
-      this.toggleButton();
-
-    });
-
-    this._addInputListners();
+    
+    this._setEventListeners();
     this.toggleButton();
 
   };
@@ -43,9 +35,13 @@ class FormValidator {
     }
   }
 
+  
   // поиск активного поля  
 
-  _addInputListners() {
+  _setEventListeners() {
+    this._formElement.addEventListener('submit', function (evt) {
+      evt.preventDefault();
+    });
 
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
 
@@ -67,11 +63,10 @@ class FormValidator {
 
   toggleButton() {
 
-    const buttonSubmit = this._formElement.querySelector(this._submitButtonSelector);
     const isFormValid = this._formElement.checkValidity();
 
-    buttonSubmit.disabled = !isFormValid;
-    buttonSubmit.classList.toggle(this._disabledButtonClass, !isFormValid);
+    this._buttonSubmit.disabled = !isFormValid;
+    this._buttonSubmit.classList.toggle(this._disabledButtonClass, !isFormValid);
 
   }
 

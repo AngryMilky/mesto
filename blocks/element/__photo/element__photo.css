@@ -1,8 +1,10 @@
 .element__photo {
-  width: 282px;
+  min-width: 282px;
+  max-width: 282px;
   min-height: 282px;
   max-height: 282px;
-  background-color: white;
+  background-color: black;
+  color: white;
   padding: 0;
   margin: 0;
   border-top-left-radius: 10px;

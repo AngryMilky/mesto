@@ -12,7 +12,7 @@ class Card {
 
   // поставить лайк
   _addLike = () => {
-    this._element.querySelector('.element__button-like').classList.toggle('element__button-like_active');
+    this._buttonLike.classList.toggle('element__button-like_active');
   }
 
   // удалить карточку
@@ -23,17 +23,20 @@ class Card {
   
   _setEventListeners = () => {
     this._element.querySelector('.element__button-delete').addEventListener('click', this._deleteCard);
-    this._element.querySelector('.element__button-like').addEventListener('click', this._addLike);
+    this._buttonLike.addEventListener('click', this._addLike);
    
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector('.element__photo');
+    this._buttonLike = this._element.querySelector('.element__button-like');
+    
     this._setEventListeners();
 
-    this._element.querySelector('.element__photo').src = this._link;
+    this._cardImage.src = this._link;
     this._element.querySelector('.element__captiontext').textContent = this._name;
-    this._element.querySelector('.element__photo').alt = this._name;
+    this._cardImage.alt = this._name;
     
     return this._element;
 
