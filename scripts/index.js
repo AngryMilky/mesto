@@ -102,7 +102,7 @@ cards.addEventListener('click', function (evt) {
   if (evt.target.classList.contains('element__photo')) {
     openPopup(formImg);
     popupPhoto.src = evt.target.src;
-    popupCaption.textContent = evt.target.closest('.element').querySelector('.element__captiontext').textContent;
+    popupCaption.textContent = evt.target.alt;
     popupPhoto.alt = evt.target.alt;
 
   }
