@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-          main: './src/scripts/index.js',
+          main: './src/pages/index.js',
     },
     output: {
           filename: 'main.[hash].js',
@@ -20,6 +20,11 @@ module.exports = {
     },
     module: {
         rules: [
+          {
+            test: /\.js$/,
+            use: 'babel-loader',
+            exclude: '/node_modules/'
+          },
           {
               test: /\.(png|svg|jpg|jpeg|gif)$/,
               type: 'asset/resource',
@@ -39,8 +44,12 @@ module.exports = {
             use: [
                 MiniCssExtractPlugin.loader,
                 {
-                  loader: 'css-loader'
-                }
+                  loader: 'css-loader',
+                  options: {
+                      importLoaders: 1,
+                  }
+                },
+                'postcss-loader'
             ],
           }
         ],

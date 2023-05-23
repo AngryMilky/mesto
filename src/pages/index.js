@@ -1,9 +1,9 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import Section from "./Section.js";
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js";
-import UserInfo from "./UserInfo.js";
+import Card from "../scripts/Card.js";
+import FormValidator from "../scripts/FormValidator.js";
+import Section from "../scripts/Section.js";
+import PopupWithImage from "../scripts/PopupWithImage.js";
+import PopupWithForm from "../scripts/PopupWithForm.js";
+import UserInfo from "../scripts/UserInfo.js";
 
 import '../pages/index.css';
 
@@ -15,18 +15,12 @@ const buttonAdd = document.querySelector('.profile__button-add');
 
 const cards = document.querySelector('.elements');
 
-const popupPhoto = document.querySelector('.popup__photo');
-const popupCaption = document.querySelector('.popup__caption');
-
 const formImg = document.querySelector('.popup_content_image');
 const formEdit = document.querySelector('.popup_content_profile');
 const formAdd = document.querySelector('.popup_content_element');
 
 const formProfileEdit = document.querySelector('#Profile_Edit');
 const formPlaceAdd = document.querySelector('#Place_Add');
-
-const name = document.querySelector('.profile__name');
-const job = document.querySelector('.profile__job');
 
 const nameText = document.querySelector('#name')
 const jobText = document.querySelector('#job')
@@ -72,6 +66,17 @@ profileValidator.enableValidation();
 addCardValidator.enableValidation();
 
 
+function createCard(data, templateSelector) {
+  const card = new Card(data.name, data.link, templateSelector, {
+    handleCardClick: () => {
+      popupOpenPhoto.open(data.name, data.link);
+    }
+
+  });
+  return card;
+}
+
+
 //Экземпляр профиля
 const profile = new UserInfo({
   profileName: '.profile__name',
@@ -82,11 +87,7 @@ const profile = new UserInfo({
 const cardsList = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = new Card(item.name, item.link, '#card-template', {
-      handleCardClick: () => {
-        popupOpenPhoto.open(item.name, item.link);
-      }
-    });
+    const card = createCard(item, '#card-template');
     const cardElement = card.generateCard();
     cardsList.addItem(cardElement);
   },
@@ -110,7 +111,7 @@ buttonCloseImg.addEventListener('click', function () {
 
 //Форма Редактирования информации в профиле
 const popupEditProfile = new PopupWithForm({
-  popupSelector: formEdit,
+  popup: formEdit,
   //отправка и сохранение формы Редактирования информации в профиле
   handleFormSubmit: (userData) => {
     profile.setUserInfo(userData);
@@ -135,15 +136,11 @@ buttonCloseProf.addEventListener('click', function () {
 
 //Форма Добавление карточки
 const popupAddCard = new PopupWithForm({
-  popupSelector: formAdd,
+  popup: formAdd,
   handleFormSubmit: (data) => {
-    const newCard = new Card(`${data['img-name']}`, `${data.link}`, '#card-template', {
-      handleCardClick: () => {
-        popupOpenPhoto.open(data.name, data.link);
-      }
-    });
-    const cardElement = newCard.generateCard();
-    document.querySelector('.elements').prepend(cardElement);
+    const card = createCard(data, '#card-template');
+    const cardElement = card.generateCard();
+    cardsList.addItem(cardElement);
     popupAddCard.close();
   }
 });

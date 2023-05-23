@@ -7,6 +7,7 @@ class FormValidator {
     this._inputErrorClass = formValidationOptions.inputErrorClass;
     this._errorClass = formValidationOptions.errorClass;
     this._buttonSubmit = this._formElement.querySelector(this._submitButtonSelector);
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
   }
 
 
@@ -42,8 +43,6 @@ class FormValidator {
     this._formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
     });
-
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
 
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
