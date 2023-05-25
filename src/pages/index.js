@@ -71,9 +71,11 @@ function createCard(data, templateSelector) {
     handleCardClick: () => {
       popupOpenPhoto.open(data.name, data.link);
     }
-
   });
+  const cardElement = card.generateCard();
+  cardsList.addItem(cardElement);
   return card;
+ 
 }
 
 
@@ -87,9 +89,8 @@ const profile = new UserInfo({
 const cardsList = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = createCard(item, '#card-template');
-    const cardElement = card.generateCard();
-    cardsList.addItem(cardElement);
+    createCard(item, '#card-template');
+        
   },
 },
   cards
@@ -101,12 +102,7 @@ cardsList.renderItems();
 
 //Попап просмотра фото
 const popupOpenPhoto = new PopupWithImage(formImg);
-
 popupOpenPhoto.setEventListeners();
-
-buttonCloseImg.addEventListener('click', function () {
-  popupOpenPhoto.close();
-});
 
 
 //Форма Редактирования информации в профиле
@@ -129,18 +125,12 @@ buttonEdit.addEventListener('click', function () {
 
 });
 
-buttonCloseProf.addEventListener('click', function () {
-  popupEditProfile.close();
-});
-
 
 //Форма Добавление карточки
 const popupAddCard = new PopupWithForm({
   popup: formAdd,
   handleFormSubmit: (data) => {
-    const card = createCard(data, '#card-template');
-    const cardElement = card.generateCard();
-    cardsList.addItem(cardElement);
+    createCard(data, '#card-template');
     popupAddCard.close();
   }
 });
@@ -150,9 +140,5 @@ popupAddCard.setEventListeners();
 buttonAdd.addEventListener('click', function () {
   popupAddCard.open();
   addCardValidator.toggleButton();
-});
-
-buttonCloseElm.addEventListener('click', function () {
-  popupAddCard.close();
 });
 
