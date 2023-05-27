@@ -73,9 +73,7 @@ function createCard(data, templateSelector) {
     }
   });
   const cardElement = card.generateCard();
-  cardsList.addItem(cardElement);
-  return card;
- 
+  return cardElement;
 }
 
 
@@ -89,7 +87,8 @@ const profile = new UserInfo({
 const cardsList = new Section({
   items: initialCards,
   renderer: (item) => {
-    createCard(item, '#card-template');
+   const card = createCard(item, '#card-template');
+   cardsList.addItem(card);
         
   },
 },
@@ -130,7 +129,8 @@ buttonEdit.addEventListener('click', function () {
 const popupAddCard = new PopupWithForm({
   popup: formAdd,
   handleFormSubmit: (data) => {
-    createCard(data, '#card-template');
+    const card = createCard(data, '#card-template');
+    cardsList.addItem(card);
     popupAddCard.close();
   }
 });
