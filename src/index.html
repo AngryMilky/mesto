@@ -19,6 +19,7 @@
 
     <section class="profile">
       <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар профиля">
+      <button type="button" class="profile__avatar-edit-button"></button>
       <div class="profile__info">
         <div class="profile__name-and-button">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -120,16 +121,53 @@
     </div>
   </div>
 
+  <!-- Попап Удаления фото ---непонятно что за сабмит батон и сейв-->
+  <div class="popup popup_content_delete">
+    <div class="popup__container">
+        <button type="button" class="popup__button-close button-close-delete"></button>
+        <h2 class="popup__title">Вы уверены?</h2>
+        <form class="popup__form" name="Photo_Delete" id="Photo_Delete" novalidate">
+            <button type="submit" class="popup__button-delete popup__button-save">Да</button>
+        </form>
+    </div>
+  </div>
+
+  <!-- Попап Редактирования аватара -->
+  <div class="popup popup_edit_avatar">
+    <div class="popup__container">
+        <button type="button" class="popup__button-close button-close-edit-avatar"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form name="Edit_Avatar" id="Edit_Avatar" class="popup__form popup__form_type_avatar" novalidate>
+            <input 
+              required
+              type="url" 
+              name="avatar"
+              id="avatar" 
+              placeholder="Ссылка на картинку" 
+              class="popup__input" >
+            <span id="avatar-error" class="popup__error"></span>
+            <button type="submit" class="popup__button-save popup__button-submit">Сохранить</button>
+        </form>
+    </div>
+  </div>
+
+
+
   <template id="card-template">
     <article class="element">
       <img class="element__photo" src="#" alt="#">
       <button class="element__button-delete" type="button" aria-label="Корзина"></button>
       <div class="element__caption">
         <h2 class="element__captiontext"></h2>
-        <button class="element__button-like" type="button" aria-label="Лайк"></button>
+        <div class="element__like">
+          <button class="element__button-like" type="button" aria-label="Лайк"></button>
+          <p class="element__like-count">0</p>
+        </div>
       </div>
     </article>
   </template> 
+
+
 
      
 </body>

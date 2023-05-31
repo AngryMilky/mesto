@@ -4,8 +4,10 @@ class PopupWithForm extends Popup {
   constructor({ popup, handleFormSubmit }) {
     super(popup);
     this._handleFormSubmit = handleFormSubmit;
-    this._form = this._popup.querySelector('.popup__form'); 
+    this._form = this._popup.querySelector('.popup__form');
     this._inputList = Array.from(this._form.querySelectorAll('.popup__input'));
+    this._buttonSubmit = this._form.querySelector('.popup__button-submit');
+    this._buttonSubmitText = this._buttonSubmit.textContent;
   }
 
   // сбор данных из полей
@@ -29,6 +31,15 @@ class PopupWithForm extends Popup {
     super.close();
     this._form.reset();
   }
+
+  renderSaving(isSaving) {
+    if (isSaving) {
+      this._buttonSubmit.textContent = 'Сохранение...';
+    } else {
+      this._buttonSubmit.textContent = this._buttonSubmitText;
+    }
+  }
+
 }
 
 export default PopupWithForm;

@@ -1,7 +1,8 @@
 .popup__button-save {
-  margin-top: 14px;
-  max-width: 358px;
-  min-height: 50px;
+  margin: 0px;
+  margin-top: 20px;
+  width: 358px;
+  height: 50px;
   border-radius: 2px;
   background-color: black;
   transition: opacity .5s ease;
@@ -23,6 +24,8 @@
     font-size: 14px;
     line-height: 17px;
     margin-top: 5px;
+    width: 238px;
+    height: 46px;
   }
 }
 
