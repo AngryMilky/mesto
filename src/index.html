@@ -52,27 +52,13 @@
       <button class="popup__button-close button-close-profile" type="button" aria-label="Закрыть"></button>
       <form class="popup__form" name="Profile_Edit" id="Profile_Edit" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input 
-          type="text" 
-          minlength="2"
-          maxlength="40"
-          class="popup__input" 
-          name="name" 
-          id="name" 
-          placeholder="Введите имя" 
-          required>
-        <span id="name-error" class="popup__error"></span> 
+        <input type="text" minlength="2" maxlength="40" class="popup__input" name="name" id="name"
+          placeholder="Введите имя" required>
+        <span id="name-error" class="popup__error"></span>
 
-         <input 
-          type="text" 
-          minlength="2"
-          maxlength="200"
-          class="popup__input" 
-          name="job" 
-          id="job" 
-          placeholder="Введите профессию" 
-          required>
-        <span id="job-error" class="popup__error"></span>  
+        <input type="text" minlength="2" maxlength="200" class="popup__input" name="job" id="job"
+          placeholder="Введите профессию" required>
+        <span id="job-error" class="popup__error"></span>
 
         <button class="popup__button-save popup__button-submit" type="submit" aria-label="Сохранить">Сохранить</button>
       </form>
@@ -85,30 +71,17 @@
       <button class="popup__button-close button-close-element" type="button" aria-label="Закрыть"></button>
       <form class="popup__form" name="Place_Add" id="Place_Add" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input 
-          required
-          type="text"
-          minlength="2"
-          maxlength="30"
-          name="name"
-          class="popup__input"
-          id="place" 
-          placeholder="Название" >
-        <span id="place-error" class="popup__error"></span>  
+        <input required type="text" minlength="2" maxlength="30" name="name" class="popup__input" id="place"
+          placeholder="Название">
+        <span id="place-error" class="popup__error"></span>
 
 
-        <input
-          required 
-          type="url" 
-          name="link"
-          class="popup__input"  
-          id="link" 
-          placeholder="Ссылка на картинку" >
-        <span id="link-error" class="popup__error"></span> 
+        <input required type="url" name="link" class="popup__input" id="link" placeholder="Ссылка на картинку">
+        <span id="link-error" class="popup__error"></span>
         <button class="popup__button-save popup__button-submit" type="submit" aria-label="Создать">Создать</button>
       </form>
     </div>
-  </div> 
+  </div>
 
   <!-- Попап Просмотр фото -->
   <div class="popup popup_content_image">
@@ -121,33 +94,27 @@
     </div>
   </div>
 
-  <!-- Попап Удаления фото ---непонятно что за сабмит батон и сейв-->
+  <!-- Попап Удаления фото -->
   <div class="popup popup_content_delete">
     <div class="popup__container">
-        <button type="button" class="popup__button-close button-close-delete"></button>
-        <h2 class="popup__title">Вы уверены?</h2>
-        <form class="popup__form" name="Photo_Delete" id="Photo_Delete" novalidate">
-            <button type="submit" class="popup__button-delete popup__button-save">Да</button>
-        </form>
+      <button type="button" class="popup__button-close button-close-delete"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form" name="Photo_Delete" id="Photo_Delete" novalidate">
+        <button type="submit" class="popup__button-delete popup__button-save">Да</button>
+      </form>
     </div>
   </div>
 
   <!-- Попап Редактирования аватара -->
   <div class="popup popup_edit_avatar">
     <div class="popup__container">
-        <button type="button" class="popup__button-close button-close-edit-avatar"></button>
-        <h2 class="popup__title">Обновить аватар</h2>
-        <form name="Edit_Avatar" id="Edit_Avatar" class="popup__form popup__form_type_avatar" novalidate>
-            <input 
-              required
-              type="url" 
-              name="avatar"
-              id="avatar" 
-              placeholder="Ссылка на картинку" 
-              class="popup__input" >
-            <span id="avatar-error" class="popup__error"></span>
-            <button type="submit" class="popup__button-save popup__button-submit">Сохранить</button>
-        </form>
+      <button type="button" class="popup__button-close button-close-edit-avatar"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form name="Edit_Avatar" id="Edit_Avatar" class="popup__form popup__form_type_avatar" novalidate>
+        <input required type="url" name="avatar" id="avatar" placeholder="Ссылка на картинку" class="popup__input">
+        <span id="avatar-error" class="popup__error"></span>
+        <button type="submit" class="popup__button-save popup__button-submit">Сохранить</button>
+      </form>
     </div>
   </div>
 
@@ -165,11 +132,11 @@
         </div>
       </div>
     </article>
-  </template> 
+  </template>
 
 
 
-     
+
 </body>
 
 </html>
